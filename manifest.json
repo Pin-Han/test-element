@@ -1,0 +1,35 @@
+{
+  "name": "test",
+  "version": 1.0,
+  "manifest_version": 2,
+  "description": "test Extension",
+  "default_locale": "en",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://maps.nlsc.gov.tw/T09/mapshow.action*",
+        "https://maps.nlsc.gov.tw/T09E/mapshow.action*"
+      ],
+      "run_at": "document_idle",
+      "js": ["js/content-script.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_title": "test",
+    "default_icon": {
+      "19": "icons/19.png",
+      "38": "icons/38.png"
+    }
+  }
+}
